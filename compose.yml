@@ -1,0 +1,13 @@
+services:
+  db-belajar:
+    image: mysql:8
+    platform: linux/x86_64
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=belajardb
+      - MYSQL_USER=belajar
+      - MYSQL_PASSWORD=belajar123
+    ports:
+      - 33061:3306
+    volumes:
+      - ./db-belajar:/var/lib/mysql
