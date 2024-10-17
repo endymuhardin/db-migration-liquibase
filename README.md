@@ -21,7 +21,7 @@ Cara menjalankan migrasi database dengan liquibase yang dijalankan dengan Docker
     docker ps
     ```
 
-    Outputnya sebagai berikut:
+    Outputnya sebagai berikut, perhatikan kolom `NAMES` di paling kanan:
 
     ```
     CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                NAMES
