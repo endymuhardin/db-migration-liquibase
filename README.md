@@ -6,7 +6,7 @@ Cara menjalankan migrasi database dengan liquibase yang dijalankan dengan Docker
 * Jalankan perintah berikut untuk membuat docker image
 
     ```
-    docker build . -t liquibase-mysql
+    docker buildx build --platform linux/amd64 -t liquibase-mysql .
     ```
 
 * Sebagai database percobaan, kita menjalankan MySQL versi 8 di Docker Compose, mengekspos port 33061
@@ -65,7 +65,7 @@ Cara menjalankan migrasi database dengan liquibase yang dijalankan dengan Docker
 * Buka terminal baru dan jalankan perintah berikut untuk menjalankan custom image kita yang akan menjalankan migrasi database dengan Liquibase
 
     ```
-    docker run --rm -v ${PWD}/changelog:/liquibase/changelog -v ${PWD}/jdbc-driver:/liquibase/classpath liquibase-mysql --defaults-file=/liquibase/changelog/liquibase.properties update
+    docker run --rm -v ${PWD}/changelog:/liquibase/changelog liquibase-mysql --defaults-file=/liquibase/changelog/liquibase.properties update
     ```
 
 * Bila Anda menggunakan Windows, variabel `${PWD}` tidak akan jalan dengan command prompt ori. Gunakan powershell atau git bash.
